@@ -1,13 +1,13 @@
-import { Text, View } from "react-native";
-import Header  from "@/components/header";
+import React from "react";
+import { View } from "react-native";
+import Header from "@/components/header";
+import ChatInterface from "@/components/ChatInterface";
 
 export default function AIScreen() {
   return (
     <View style={{ flex: 1 }}>
       <Header />
-      <Text style={{ fontSize: 20, fontWeight: "600", textAlign: "center", marginTop: 20 }}>
-        🤖 AI Screen
-      </Text>
+      <ChatInterface />
     </View>
   );
 }

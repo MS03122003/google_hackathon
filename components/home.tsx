@@ -1,14 +1,28 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Header from "../components/header";
+import CreditScoreCard from "./CreditScoreCard";
+import Expense from "./Expense";
+import NetWorthCard from "./NetWorthCard";
+import Insights from "./Insights";
 
 const Home = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <View style={styles.content}>
-        <Text style={styles.text}>🏠 Welcome to the Home Screen!</Text>
-      </View>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <CreditScoreCard score={800} />
+        <NetWorthCard 
+  name="Jane Smith" 
+  netWorth="$1,234,567"
+  accountNumber="4532 1234 5678 9012"
+  cardType="emerald"
+  bankName="PREMIUM BANK"
+  showChip={true}
+/>
+        <Expense />
+        <Insights />
+      </ScrollView>
     </View>
   );
 };
@@ -18,11 +32,10 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff", // Optional: white background
   },
-  content: {
-    flex: 1,
-    justifyContent: "center",
+  scrollContent: {
+    paddingBottom: 20,
     alignItems: "center",
   },
   text: {
